@@ -1,0 +1,47 @@
+<!DOCTYPE html> <!-- Tells the browser that this document is written in modern HTML5 -->
+<html> <!-- Opens the main container that holds the entire webpage -->
+<body> <!-- Opens the visible body section where everything shown on screen lives -->
+
+  <details> <!-- Creates a built-in expandable/collapsible box -->
+    <summary>Complaint</summary> <!-- Creates the clickable heading/button that opens the box -->
+    
+    <form onsubmit="showResult(event)"> <!-- Starts a form and triggers the 'showResult' function when submitted -->
+      
+      <p>Name: <input type="text" id="name" required></p> <!-- Creates a paragraph with a required single-line text box tagged 'name' -->
+      
+      <p>Room Number: <input type="text" id="room" required></p> <!-- Creates a paragraph with a required single-line text box tagged 'room' -->
+      
+      <p>Mail ID: <input type="email" id="mail" required></p> <!-- Creates a paragraph with a required email box (checks for '@') tagged 'mail' -->
+      
+      <p>Complaint: <textarea id="text" required></textarea></p> <!-- Creates a paragraph with a larger multi-line text box tagged 'text' -->
+      
+      <button type="submit">Submit</button> <!-- Creates the clickable button that submits the form -->
+      
+    </form> <!-- Closes the form container -->
+  </details> <!-- Closes the expandable/collapsible box -->
+
+  <p id="output"></p> <!-- Creates an empty paragraph tagged 'output' where the final result will appear -->
+
+  <script> // Opens the JavaScript section where the logic and actions are written
+
+    function showResult(event) { // Creates a reusable block of instructions named 'showResult' that receives the submit 'event'
+      
+      event.preventDefault(); // Stops the browser's default behavior of refreshing the page on submit
+      
+      let name = document.getElementById("name").value; // Finds the box with id 'name', grabs the typed text, and saves it in a variable called 'name'
+      
+      let room = document.getElementById("room").value; // Finds the box with id 'room', grabs the typed text, and saves it in a variable called 'room'
+      
+      let mail = document.getElementById("mail").value; // Finds the box with id 'mail', grabs the typed text, and saves it in a variable called 'mail'
+      
+      let text = document.getElementById("text").value; // Finds the box with id 'text', grabs the typed text, and saves it in a variable called 'text'
+
+      document.getElementById("output").innerText = // Finds the empty paragraph tagged 'output' and prepares to change its visible text
+        "Received from " + name + " (Room " + room + ", " + mail + "): " + text; // Joins plain words and your saved variables together into one single sentence
+        
+    } // Closes the 'showResult' function block
+
+  </script> // Closes the JavaScript section
+
+</body> <!-- Closes the visible body section -->
+</html> <!-- Closes the entire HTML document -->
